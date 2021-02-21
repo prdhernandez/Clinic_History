@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+episodio_group_user,episodio.user,model_episodio,base.group_user,1,1,1,1

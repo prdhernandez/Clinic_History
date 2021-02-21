@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<!-- menu principal -->
+	<act_window id="action_clinichistory" name="clinic history" res_model="clinichistory" view_mode="tree,form" />
+	<!-- Menu desplegable izquierda -->
+	<menuitem id="main_menu_clinichistory" name="Clinic history application" />
+	<!-- Menu barra superior -->
+	<menuitem id="l1_menu_clinichistory" name="Opciones" parent="main_menu_clinichistory" />
+	<!-- Nombre del menu desplegable dentro de la etiqueta anterior -->
+	<menuitem id="menu_clinichistory" name="Historias clinicas" parent="l1_menu_clinichistory" action="action_clinichistory" />
+	<record id="view_tree_clinichistory" model="ir.ui.view">
+		<field name="name">clinichistory</field>
+		<field name="model">clinichistory</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="n_history" />
+				<field name="name" />
+				<field name="__last_update" />
+			</tree>
+		</field>
+	</record>
+</odoo>

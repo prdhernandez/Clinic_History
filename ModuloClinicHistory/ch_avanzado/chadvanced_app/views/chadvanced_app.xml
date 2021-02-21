@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<act_window id="action_ch_adv" name="Clinic History Advanced" res_model="clinichistory" view_mode="tree,form,graph,pivot" />
+	<!-- Menu item to open To-do Task list colaborativa -->
+	<menuitem id="menu_chadvanced" name="Clinic History Advanced" parent="clinichistory_app.l1_menu_clinichistory" sequence="30" action="action_ch_adv" />
+	<record id="view_form_clinichistory" model="ir.ui.view">
+		<field name="name">Clinic History Form</field>
+		<field name="model">clinichistory</field>
+		<field name="arch" type="xml">
+			<form>
+				<header>
+					<button name="do_marcar" type="object" string="Marcar ingresados" class="oe_highlight" />
+				</header>
+				<sheet>
+					<group name="group_top">
+						<group name="group_left">
+							<field name="name"/>
+							<field name="identification"/>
+							<field name="n_history"/>
+						</group>
+						<group name="group_right">
+							<field name="is_admitted"/>
+							<field name="days_admitted"/>
+						</group>
+					</group>
+					<notebook colspan="1">
+						<page string="Episodios">
+							<field name="episode_ids" nolabel="1" widget="one2many_list">
+								<tree string="Episodios" editable="bottom">
+									<field name="description" />
+									<field name="especialidad" />
+									<field name="user_id" />
+									<field name="diagnostico"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+	<record id="view_tree_clinichistory_inherited" model="ir.ui.view">
+		<field name="name">Clinic history Advanced tree extension</field>
+		<field name="model">clinichistory</field>
+		<field name="inherit_id" ref="clinichistory_app.view_tree_clinichistory" />
+		<field name="arch" type="xml">
+			<field name="name" position="after">
+				<field name="is_admitted" />
+			</field>
+		</field>
+	</record>
+	<record id="view_filter_clinichistory" model="ir.ui.view">
+		<field name="name">Clinic History Filter</field>
+		<field name="model">clinichistory</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name" />
+				<filter name="done" string="Ingresados" domain="[('is_admitted','!=',False)]" />
+			</search>
+		</field>
+	</record>
+	<record id="view_graph_clinichistory" model="ir.ui.view">
+		<field name="name">Clinic History Graph</field>
+		<field name="model">clinichistory</field>
+		<field name="arch" type="xml">
+			<graph>
+				<field name="name" />
+				<field name="days_admitted" type="measure" />
+			</graph>
+		</field>
+	</record>
+	<record id="view_pivot_clinichistory" model="ir.ui.view">
+		<field name="name">Clinic History Pivot</field>
+		<field name="model">clinichistory</field>
+		<field name="arch" type="xml">
+			<pivot>
+				<field name="name" type="col" />
+				<field name="days_admitted" type="row" />
+			</pivot>
+		</field>
+	</record>
+</odoo>
