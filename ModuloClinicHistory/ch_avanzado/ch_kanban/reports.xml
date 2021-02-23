@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-	<report id="report_ch_admitted" model="clinichistory" string="Dias ingresados" report_type="qweb-pdf" name="ch_kanban.report_ch_day" attachment_use="False" file="ch_kanban.report_ch_day" />
+	<report id="report_ch_admitted" model="clinichistory" string="Informe" report_type="qweb-pdf" name="ch_kanban.report_ch_day" attachment_use="False" file="ch_kanban.report_ch_day" />
 </odoo>
