@@ -8,7 +8,8 @@
 						<h2>Informacion</h2>
 						<p>Nombre del paciente: <span t-field="o.name" /></p>
 						<p>Dias ingresado: <span t-field="o.days_admitted" /></p>
-						<p>Episodio: <span t-field="o.episodes" /></p>
+						<p>Descripcion: <span t-field="o.episode_ids.description" /></p>
+						<p>Diagnostico: <span t-field="o.episode_ids.diagnostico" /></p>
 
 					</div>
 				</t>
